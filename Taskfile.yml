@@ -1,0 +1,21 @@
+version: '3'
+
+tasks:
+  default:
+    deps: [all]
+
+  html:
+    desc: MD から HTML を生成
+    cmds:
+      - marp sample.md --output sample.html
+      - marp slide.md --output slide.html
+
+  pdf:
+    desc: MD から PDF を生成
+    cmds:
+      - marp sample.md --pdf --output sample.pdf
+      - marp slide.md --pdf --output slide.pdf
+
+  all:
+    desc: HTML と PDF を両方生成
+    deps: [html, pdf]
